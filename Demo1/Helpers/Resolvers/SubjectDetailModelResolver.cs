@@ -14,7 +14,7 @@ namespace Demo1.Helpers.Resolvers
 
         Task<InstructorModel> InstructorResponse(IResolverContext context)
         {
-            var instructorDataLoader = context.DataLoader<InstructorModelDataLoader>();
+            var instructorDataLoader = context.DataLoader<InstructorModel1DataLoader>();
             var parent = context.Parent<SubjectDetailModel>();
             return instructorDataLoader.LoadAsync(parent.Id);
         }

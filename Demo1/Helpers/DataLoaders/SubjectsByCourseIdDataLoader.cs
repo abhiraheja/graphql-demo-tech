@@ -23,7 +23,7 @@ namespace Demo1.Helpers.DataLoaders
                     Id = x.SubjectId,
                     Name = x.Subject.Name
                 }
-            }).GroupBy(x=>x.CourseId).ToDictionaryAsync(x => x.Key, x => x.Select(x=>x.Subject).ToList());
+            }).GroupBy(x => x.CourseId).ToDictionaryAsync(x => x.Key, x => x.Select(x => x.Subject).ToList());
         }
     }
 }

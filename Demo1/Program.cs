@@ -22,9 +22,9 @@ services.AddPooledDbContextFactory<AppDbContext>(options => options.UseSqlite(co
 services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 // DataLoader Add
-services.TryAddScoped<InstructorModelDataLoader>();
-//services.TryAddScoped<CoursesByStudentIdDataLoader>();
-//services.TryAddScoped<SubjectsByCourseIdDataLoader>();
+services.TryAddScoped<InstructorModel1DataLoader>();
+services.TryAddScoped<CoursesByStudentIdDataLoader>();
+services.TryAddScoped<SubjectsByCourseIdDataLoader>();
 
 
 
@@ -35,9 +35,9 @@ var graphqlserver = services.AddGraphQLServer()
     .AddFiltering()
     .AddSorting()
     .AddProjections()
-    //.AddType<SubjectDetailModel3Resolver>()
-    //.AddType<StudentDetailModelResolver>()
-    //.AddType<CourseDetailModelResolver>()
+    .AddType<SubjectDetailModel3Resolver>()
+     .AddType<StudentDetailModelResolver>()
+    .AddType<CourseDetailModelResolver>()
     .AddType<SubjectDetailModelResolver>()
     .AddInMemorySubscriptions();
 
