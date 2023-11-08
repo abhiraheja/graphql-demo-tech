@@ -8,10 +8,6 @@ namespace Demo1.Graphql.Queries
 {
     public partial class Query
     {
-        public Query()
-        {
-            Console.Clear();
-        }
         public Task<List<StudentModel>> GetStudents([Service] IStudentRepository studentRepository)
         {
             return studentRepository.GetStudentsAsync();

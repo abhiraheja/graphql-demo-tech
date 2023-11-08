@@ -85,10 +85,10 @@ namespace Demo1.Data.Repository
             return "Instructor deleted successfully";
         }
 
-        public async Task<IReadOnlyDictionary<Guid, InstructorModel1>> GetInstructorBySubjectKeys(IReadOnlyList<Guid> keys)
+        public async Task<IReadOnlyDictionary<Guid, InstructorModel>> GetInstructorBySubjectKeys(IReadOnlyList<Guid> keys)
         {
             using var context = _contextFactory.CreateDbContext();
-            return await context.InstructorSubjectEntities.Where(x => keys.Contains(x.SubjectId)).Select(x => new { x.SubjectId, data = _mapper.Map<InstructorModel1>(x.InstructorEntity) })
+            return await context.InstructorSubjectEntities.Where(x => keys.Contains(x.SubjectId)).Select(x => new { x.SubjectId, data = _mapper.Map<InstructorModel>(x.InstructorEntity) })
                 .ToDictionaryAsync(x => x.SubjectId, x => x.data);
         }
     }

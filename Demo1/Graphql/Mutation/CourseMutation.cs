@@ -36,6 +36,17 @@ namespace Demo1.Graphql.Mutation
             return result;
         }
 
+        public async Task<CourseModel> UpdateCourseWithECOEvent(CourseModel request, [Service] ICourseRepository courseRepository, [Service] ITopicEventSender topicEventSender)
+        {
+            var result = await courseRepository.UpdateCoursesAsync(request);
+            var topicName = $"ECO";
+            if (result.Name.Contains("ECO"))
+            {
+                await topicEventSender.SendAsync(topicName, result);
+            }
+            return result;
+        }
+
         public Task<string> DeleteCourse(Guid id, [Service] ICourseRepository courseRepository)
         {
             return courseRepository.DeleteCoursesAsync(id);

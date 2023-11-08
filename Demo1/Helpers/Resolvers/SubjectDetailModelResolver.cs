@@ -12,9 +12,9 @@ namespace Demo1.Helpers.Resolvers
             base.Configure(descriptor);
         }
 
-        Task<InstructorModel1> InstructorResponse(IResolverContext context)
+        Task<InstructorModel> InstructorResponse(IResolverContext context)
         {
-            var instructorDataLoader = context.DataLoader<InstructorModel1DataLoader>();
+            var instructorDataLoader = context.DataLoader<InstructorModelDataLoader>();
             var parent = context.Parent<SubjectDetailModel>();
             return instructorDataLoader.LoadAsync(parent.Id);
         }

@@ -98,12 +98,7 @@ namespace Demo1.Data.Repository
                         {
                             Id = z.Subject.Id,
                             Name = z.Subject.Name,
-                            Instructor = new InstructorModel1 { 
-                                Id=z.Subject.InstructorSubjectEntity.InstructorEntity.Id,
-                                Name= z.Subject.InstructorSubjectEntity.InstructorEntity.Name,
-                                FatherName= z.Subject.InstructorSubjectEntity.InstructorEntity.FatherName,
-                                Salary= z.Subject.InstructorSubjectEntity.InstructorEntity.Salary,
-                            }
+                           
                         }).ToList()
                     }).ToList(),
 

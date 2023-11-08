@@ -2,7 +2,12 @@
 {
     public class MyModel
     {
-        public string MyName { get; set; }
-        public DateTime Timestamp { get; set; }
+        public MyModel(string myName, DateTime date)
+        {
+            MyName = myName;
+            Timestamp = date;
+        }
+        public string MyName { get; }
+        public DateTime Timestamp { get; }
     }
 }

@@ -6,7 +6,7 @@ namespace Demo3.Queries
     {
         public MyModel GetMyModel()
         {
-            return new MyModel();
+            return new MyModel("Abhishek Raheja", DateTime.Now);
         }
     }
 }

@@ -28,19 +28,12 @@ namespace Demo1.Data.Repository
         {
             using var context = _contextFactory.CreateDbContext();
 
-            var a = await context.SubjectEntities.Include(x => x.InstructorSubjectEntity)
-                .ThenInclude(x => x.InstructorEntity)
+            var a = await context.SubjectEntities
                 .Select(x => new SubjectDetailModel
             {
                 Id = x.Id,
                 Name = x.Name,
-                Instructor = new InstructorModel1
-                {
-                    Id = x.InstructorSubjectEntity.InstructorEntity.Id,
-                    Name = x.InstructorSubjectEntity.InstructorEntity.Name,
-                    FatherName = x.InstructorSubjectEntity.InstructorEntity.FatherName,
-                    Salary = x.InstructorSubjectEntity.InstructorEntity.Salary,
-                }
+               
             }).ToListAsync();
             return a;
         }

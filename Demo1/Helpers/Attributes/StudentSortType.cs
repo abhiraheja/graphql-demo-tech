@@ -7,7 +7,7 @@ namespace Demo1.Helpers.Attributes
     {
         protected override void Configure(ISortInputTypeDescriptor<StudentEntity> descriptor)
         {
-            descriptor.Ignore(x => x.Name);
+            descriptor.Ignore(x => x.Id);
             base.Configure(descriptor);
         }
     }

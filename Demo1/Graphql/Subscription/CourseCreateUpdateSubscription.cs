@@ -20,5 +20,13 @@ namespace Demo1.Graphql.Subscription
             var topicName = $"{courseId}_{nameof(Subscription.CourseUpdated)}";
             return topicEventReceiver.SubscribeAsync<CourseModel>(topicName);
         }
+
+        // Specific name
+        [SubscribeAndResolve]
+        public ValueTask<ISourceStream<CourseModel>> CourseUpdatedEcoConsumer([Service] ITopicEventReceiver topicEventReceiver)
+        {
+            var topicName = $"ECO";
+            return topicEventReceiver.SubscribeAsync<CourseModel>(topicName);
+        }
     }
 }

@@ -53,7 +53,7 @@ namespace Demo1.Data.Repository
             var selectedCourse = await context.CourseEntities.Where(x => x.Id == model.Id).FirstOrDefaultAsync();
             if (selectedCourse == null)
             {
-                throw new GraphQLException("Course not available");
+                throw new GraphQLException("No course available");
             }
             selectedCourse.Name = model.Name;
             context.CourseEntities.Update(selectedCourse);
